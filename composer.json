@@ -1,5 +1,5 @@
 {
-    "name": "codingfreak98/mvc-ecture",
+    "name": "capricious-rebel/instagram",
     "description": "My first MVC Application",
     "require": {
         "torophp/torophp": "dev-master",
