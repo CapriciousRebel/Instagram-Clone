@@ -1,9 +1,9 @@
 <?php
 
-class Home //this is my controller for base route("/")
+class Home // handles the base route("/")
 {
-    public function get() //when browser makes a _GET request, this function will be called
+    public function get() // Handles the _GET request, which is always made at the start
     {
-        echo "Hello !";
+        echo \View\Loader::make()->render("templates/home.twig");;
     }
 }
