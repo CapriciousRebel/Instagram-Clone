@@ -1,0 +1,125 @@
+@import 'style.css';
+
+/* global styles */
+
+body {
+    max-height: 100vh;
+}
+
+h3 {
+    font-weight: lighter;
+}
+
+.highlight-blue {
+    color: #0f4c75;
+}
+
+
+/* specific styles */
+
+.main {
+    display: grid;
+    grid-template: 1fr/1fr 1fr;
+}
+
+.phone-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 15% 0% 0% 7%;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 15% 7% 0% 0%;
+}
+
+.login-form {
+    border: 1px solid #a6e3e9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 400px;
+    margin: 0px 0px 30px 0px;
+}
+
+.login-form .logo-img {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    padding: 10px 0px;
+}
+
+.input-form {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+}
+
+.input-field {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 15px 0px;
+    background-color: #e4f9f5;
+    border: 1px solid #a6e3e9;
+}
+
+.submit-button {
+    background-color: #3f72af;
+    margin: 19px;
+    min-height: 40px;
+    border-radius: 7px;
+    color: white;
+    font-size: 20px;
+}
+
+.segway {
+    color: grey;
+}
+
+.facebook {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    padding: 12px 0px;
+}
+
+.facebook-logo {
+    max-width: 26px;
+}
+
+.facebook h3 {
+    color: #48466d;
+}
+
+.sign-up {
+    border: 1px solid #a6e3e9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 400px;
+    margin: 0px 0px 30px 0px;
+}
+
+.get-app {
+    display: flex;
+    flex-direction: column;
+}
+
+.get-app h3 {
+    align-self: center;
+    padding: 0px 0px 20px 0px;
+}
+
+.get-app .icons {
+    display: flex;
+}
+
+.get-app .icon {
+    max-width: 136px;
+    padding: 0px 4px;
+}

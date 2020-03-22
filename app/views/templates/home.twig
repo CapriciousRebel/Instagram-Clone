@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Instagram</title>
+		<link rel="stylesheet" href="/assets/css/home_style.css">
+	</head>
+
+	<body>
+		<div class="content">
+			<div class="main">
+				<div class="phone-image">
+					<img src="/assets/images/phone.png" alt=" ">
+				</div>
+
+				<div class="login">
+					<div class="login-form">
+						<img class="logo-img" src="/assets/images/logo.png" style="max-width: 175px;" alt="">
+
+						<form class="input-form" action="" method="POST">
+							<input class="input-field" type="text" placeholder="Phone number, username or email">
+							<input class="input-field" type="text" placeholder="Password">
+							<button class="submit-button" type="submit">Log in</button>
+						</form>
+
+						<h4 class="segway">Or</h4>
+
+						<span class="facebook">
+							<img class="facebook-logo" src="/assets/images/facebook_logo.png" alt="">
+							<h3>Log in with Facebook</h3>
+						</span>
+
+						<h4 class="highlight-blue" style="padding:23px 0px;">Forgot Password?</h4>
+					</div>
+
+					<div class="sign-up" style="padding:23px 0px;">
+						<h3>Don't have an account?
+							<span class="highlight-blue">Sign up</span>
+						</h3>
+					</div>
+
+					<div class="get-app">
+						<h3>Get the app.</h3>
+						<div class="icons">
+							<img class="icon" src="/assets/images/android.png" alt="">
+							<img class="icon" src="/assets/images/ios.png" alt="">
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		{% include("templates/footer.twig") %}
+	</body>
+</html>
