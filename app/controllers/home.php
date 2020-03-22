@@ -1,5 +1,7 @@
 <?php
 
+namespace Controller;
+
 
 class Home // handles the base route("/")
 {

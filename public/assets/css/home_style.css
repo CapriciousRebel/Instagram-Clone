@@ -4,6 +4,7 @@
 
 body {
     max-height: 100vh;
+    background-color: rgba(var(--b3f, 250, 250, 250), 1);
 }
 
 h3 {
@@ -26,18 +27,21 @@ h3 {
 .phone-image {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 15% 0% 0% 7%;
+    margin: 14% 0% 0% 7%;
 }
 
-.login,
-.signup {
+.phone {
+    justify-self: flex-start;
+    align-self: flex-end;
+    padding: 0px 15px 0px 0px;
+}
+
+.login {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 15% 7% 0% 0%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 14% 7% 0% 0%;
 }
 
 .signup {
@@ -54,8 +58,9 @@ h3 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 400px;
-    margin: 0px 0px 30px 0px;
+    width: 350px;
+    margin: 0px 0px 30px 15px;
+    background-color: white;
 }
 
 .login-form .logo-img {
@@ -63,6 +68,7 @@ h3 {
     justify-content: center;
     align-self: center;
     padding: 10px 0px;
+    background-color: white;
 }
 
 .input-form {
@@ -70,20 +76,21 @@ h3 {
     flex-direction: column;
     align-self: center;
     justify-content: center;
+    background-color: white;
 }
 
 .input-field {
     width: 100%;
     padding: 12px 20px;
     margin: 15px 0px;
-    background-color: #e4f9f5;
+    background-color: rgba(var(--b3f, 250, 250, 250), 1);
     border: 1px solid #a6e3e9;
 }
 
 .input-field-signup {
     padding: 12px 50px;
     margin: 9px 0px;
-    background-color: #e4f9f5;
+    background-color: rgba(var(--b3f, 250, 250, 250), 1);
     border: 1px solid #a6e3e9;
 }
 
@@ -117,16 +124,19 @@ h3 {
 .sign-up,
 .log-in {
     border: 1px solid #a6e3e9;
+    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 400px;
-    margin: 0px 0px 30px 0px;
+    margin: 0px 0px 30px 15px;
 }
 
 .get-app {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    margin: 0px 0px 20px 85px;
 }
 
 .get-app h3 {

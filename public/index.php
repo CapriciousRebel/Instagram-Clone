@@ -4,6 +4,6 @@ session_start();
 require __DIR__ . "/../vendor/autoload.php";
 
 Toro::serve(array(
-    "/" => "\Home",
-    "/signup" => "\SignUp"
+    "/" => "\Controller\Home",
+    "/signup" => "\Controller\SignUp"
 ));
