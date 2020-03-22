@@ -7,6 +7,14 @@
     box-sizing: border-box;
 }
 
+.highlight-blue {
+    color: #0f4c75;
+}
+
+.highlight-grey {
+    color: #52616b;
+}
+
 .content {
     height: 80vh;
 }
