@@ -49,12 +49,33 @@ class User
 
         if (\Model\User::userExists($username, $email_or_phone)) {
             echo "User already exists!";
-
         } else {
             $query = "INSERT INTO account(username,password,name,email_or_phone) VALUES(?,?,?,?);";
             $result = $database->prepare($query);
             $result->execute([$username, $password, $name, $email_or_phone]);
             return true;
+        }
+    }
+
+    public static function authenticateUser($username, $password)
+    {
+        $database = \DB::get_database();
+
+        if (\Model\User::userExists($username, $username)) {
+            $query = "SELECT * FROM account WHERE password = :password";
+            $result = $database->prepare($query);
+            $result->execute(
+                array(
+                    ":password" => $password,
+                )
+            );
+            $password_verified = $result->fetch(PDO::FETCH_ASSOC);
+
+            if($password_verified){
+                return true;
+            }else{
+                return false;
+            }
         }
     }
 }

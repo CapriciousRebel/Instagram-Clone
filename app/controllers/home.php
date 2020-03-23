@@ -2,11 +2,14 @@
 
 namespace Controller;
 
-
-class Home // handles the base route("/")
+class Home
 {
-    public function get() // Handles the _GET request, which is always made at the start
+    public function get()
     {
-        echo \View\Loader::make()->render("templates/home.twig");;
+        if ($_SESSION["logged-in"]) {
+            echo \View\Loader::make()->render("templates/homepage.twig");
+        } else {
+            echo \View\Loader::make()->render("templates/home.twig");
+        }
     }
 }
