@@ -14,10 +14,13 @@ class Login
 
             $_SESSION["logged-in"] = true;
             $_SESSION["username"] = $username;
-            header("location: /feed");
+            // echo " authenticated!";
+            // echo $_SESSION["username"];
+            // header("location: /");
         } else {
-            echo "Invalid username or password!";
+            $_SESSION["login-failed"] = true;
+            //header("location: /");
+            //echo "Invalid username or password!";
         }
-
     }
 }
