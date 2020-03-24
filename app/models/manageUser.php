@@ -71,9 +71,9 @@ class User
             );
             $password_verified = $result->fetch(PDO::FETCH_ASSOC);
 
-            if($password_verified){
+            if ($password_verified) {
                 return true;
-            }else{
+            } else {
                 return false;
             }
         }

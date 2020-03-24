@@ -6,21 +6,20 @@ class Login
 {
 
     public static function post()
+
     {
-        $username = $_POST["username"];
-        $password = $_POST["password"];
+        $username = $_POST['username'];
+        $password = $_POST['password'];
 
-        if (\Model\User::authenticateUser($username, $password)) {
+        if (\Model\User::authenticateUser($username, $password) == true) {
 
-            $_SESSION["logged-in"] = true;
+            $_SESSION["logged-in"] = 2;
             $_SESSION["username"] = $username;
-            // echo " authenticated!";
-            // echo $_SESSION["username"];
-            // header("location: /");
+    
+            echo "verified";
+
         } else {
-            $_SESSION["login-failed"] = true;
-            //header("location: /");
-            //echo "Invalid username or password!";
+            echo "verification failed!";
         }
     }
 }

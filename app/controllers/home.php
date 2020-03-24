@@ -6,9 +6,12 @@ class Home
 {
     public function get()
     {
-        if ($_SESSION["logged-in"]) {
-            echo "logged-in!";
-            //echo \View\Loader::make()->render("templates/homepage.twig");
+        session_start();
+
+        if ($_SESSION["logged-in"] == 2) {
+            echo $_SESSION["username"];
+            echo \View\Loader::make()->render("templates/homepage.twig");
+
         } else {
             echo \View\Loader::make()->render("templates/home.twig");
         }
