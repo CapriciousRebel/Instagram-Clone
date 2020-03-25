@@ -8,9 +8,11 @@ use PDOException;
 
 class User
 {
-
+    /**
+     * check if a user already exists
+     */
     public static function userExists($username, $email_or_phone)
-    // checks if a user already exists
+
     {
         $database = \DB::get_database();
         try {
@@ -43,8 +45,12 @@ class User
         }
     }
 
+    /**
+     * create a new user
+     */
     public static function createUser($username, $password, $name, $email_or_phone)
     {
+        // 
         $database = \DB::get_database();
 
         if (\Model\User::userExists($username, $email_or_phone)) {
@@ -57,8 +63,12 @@ class User
         }
     }
 
+    /**
+     * verify the user's password against their username
+     */
     public static function authenticateUser($username, $password)
     {
+
         $database = \DB::get_database();
 
         if (\Model\User::userExists($username, $username)) {
@@ -77,5 +87,24 @@ class User
                 return false;
             }
         }
+    }
+
+    /**
+     * returns the user's information
+     */
+    public static function getUser($username)
+    {
+        $database = \DB::get_database();
+        $query = "SELECT * FROM account WHERE username = :username";
+        $result = $database->prepare($query);
+        $result->execute(
+            array(
+                ":username" => $username,
+            )
+        );
+
+        $user = $result->fetch(PDO::FETCH_ASSOC);
+
+        return $user;
     }
 }

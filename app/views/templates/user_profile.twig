@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Instagram</title>
+		<link rel="stylesheet" href="/assets/css/user_style.css">
+
+	</head>
+
+	<body>
+		{% include "templates/nav-bar.twig" %}
+
+		<div class="content-user">
+			<div class="user">
+				<div class="user-image">
+					<img src="/assets/images/smith.png" style="max-width:150px;">
+				</div>
+				<div class="user-main">
+					<div class="user-element" id="username">
+						<h1>{{user.username}}</h1>
+					</div>
+					<div class="user-element" id="button">
+						<h4 id="edit-button"><a href = "/edit">Edit Profile</a></h4>
+					</div>
+					<div class="user-element" id="noofposts">
+						<h4>n Posts</h4>
+					</div>
+					<div class="user-element">
+						<h4>x Followers</h4>
+					</div>
+					<div class="user-element">
+						<h4>y Following</h4>
+					</div>
+					<div class="user-element" id="user_name">
+						<h4>{{user.name}}</h4>
+					</div>
+				</div>
+			</div>
+			<div class="user-posts">
+				<div class="user-post">
+					<img class="post-image" src="/assets/images/smith-post.png">
+				</div>
+				<div class="user-post">
+					<img class="post-image" src="/assets/images/smith-post.png" style="max-width:100%;">
+				</div>
+				<div class="user-post">
+					<img class="post-image" src="/assets/images/smith-post.png" style="max-width:100%;">
+				</div>
+			</div>
+
+		</div>
+
+		{%include "templates/footer.twig"%}</body>
+</html></body></html></body></html>
