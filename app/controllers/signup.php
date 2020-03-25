@@ -17,6 +17,7 @@ class SignUp // handles the base route("/")
         $password = $_POST["password"];
 
         if(\Model\User::createUser($username,$password,$name,$email_or_phone)){
+            $_SESSION['logged-in'] = 0;
             header("Location: /");
         };
     }

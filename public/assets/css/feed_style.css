@@ -1,0 +1,49 @@
+@import 'style.css';
+.navbar {
+    display: grid;
+    grid-template: 1fr / 5fr 4fr 1fr 1fr 1fr;
+    padding: 0% 20%;
+    border: 1px solid #a6e3e9;
+    height: 7vh;
+}
+
+.navbar-img {
+    display: flex;
+    align-self: center;
+    justify-self: flex-start;
+    height: 45px;
+}
+
+.search-box {
+    display: flex;
+    align-self: center;
+    justify-self: flex-start;
+}
+
+.input-field {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 15px 0px 15px 0px;
+    background-color: rgba(var(--b3f, 250, 250, 250), 1);
+    border: 1px solid #a6e3e9;
+}
+
+.content {
+    min-height: 93vh;
+    background-color: rgba(var(--b3f, 250, 250, 250), 1);
+    display: flex;
+    justify-content: center;
+}
+
+.posts {
+    border: 1px solid #8d8d8d;
+    display: flex;
+    justify-content: center;
+    width: 60%;
+}
+
+.post {
+    border: 1px solid #a6e3e9;
+    width: 60%;
+    height: 500px;
+}

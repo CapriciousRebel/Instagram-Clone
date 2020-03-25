@@ -2,15 +2,16 @@
 
 namespace Controller;
 
-class Home
+class User
 {
     public function get()
     {
         session_start();
 
         if ($_SESSION["logged-in"] == 2) {
-            echo \View\Loader::make()->render("templates/homepage.twig");
-
+            echo \View\Loader::make()->render("templates/userpage.twig",array(
+                "username" => $_SESSION["username"],
+            ));
         } else {
             echo \View\Loader::make()->render("templates/home.twig");
         }
