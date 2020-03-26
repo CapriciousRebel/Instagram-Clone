@@ -13,9 +13,9 @@ $(document).ready(function() {
                 username: username,
                 password: password
             },
-            success: function(response) {
+            success: function(resp) {
 
-                if (response == "verified") {
+                if (resp == "verified") {
                     setTimeout("window.location.href = '' ", 500);
                 } else {
                     var warning_txt = document.createElement("h3");

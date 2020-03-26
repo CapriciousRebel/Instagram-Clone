@@ -12,10 +12,8 @@ class Login
         $password = $_POST['password'];
 
         if (\Model\User::authenticateUser($username, $password) == true) {
-
             $_SESSION["logged-in"] = 2;
             $_SESSION["username"] = $username;
-    
             echo "verified";
 
         } else {

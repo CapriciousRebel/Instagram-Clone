@@ -11,6 +11,7 @@ Toro::serve(array(
     "/" => "\Controller\Home",
     "/signup" => "\Controller\SignUp",
     "/login" => "\Controller\Login",
+    "/update" => "\Controller\Update",
     "/user" => "\Controller\User",
     "/edit" => "\Controller\Edit"
 ));

@@ -107,4 +107,26 @@ class User
 
         return $user;
     }
+
+    /**
+     * update the user data
+     */
+    public static function updateUser($username, $new_username, $new_name, $new_password, $new_email_or_phone)
+    {
+        $database = \DB::get_database();
+        $query = "UPDATE account SET username = :new_username, name = :new_name, password = :new_password, email_or_phone = :new_email_or_phone WHERE username = :username";
+        $result = $database->prepare($query);
+
+        $result->execute(
+            array(
+                ":username" => $username,
+                ":new_username" => $new_username,
+                ":new_name" => $new_name,
+                ":new_password" => $new_password,
+                ":new_email_or_phone" => $new_email_or_phone
+            )
+        );
+        
+        return true;
+    }
 }
