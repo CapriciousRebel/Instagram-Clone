@@ -19,18 +19,18 @@
 
 					<h2 class="highlight-grey">Upload a Photo</h2>
 
-					<form class="input-form" method="POST">
-						<input class="input-field" id="image" type="file" name="image">
+					<form class="input-form" method="POST" enctype="multipart/form-data">
+						<input class="input-field" id="image_input" type="file" name="image_input">
 						<input class="input-field" id="caption" type="text" name="caption" placeholder="Caption">
 					</form>
 					<input class="submit-button" type="submit" value="Submit">
 					<div class="preview">
-						<img src="" id="image">
+						<img src = "" id="image" width = 200px height = 200px>
 					</div>
 				</div>
 			</div>
 		</div>
 		{%include "templates/footer.twig"%}
-		<script src="/assets/js/edit.js"></script>
+		<script src="/assets/js/upload.js"></script>
 	</body>
 </html>
