@@ -50,7 +50,6 @@ class User
      */
     public static function createUser($username, $password, $name, $email_or_phone)
     {
-        // 
         $database = \DB::get_database();
 
         if (\Model\User::userExists($username, $email_or_phone)) {
@@ -92,14 +91,15 @@ class User
     /**
      * returns the user's information
      */
-    public static function getUser($username)
+    public static function getUser($username, $email_or_phone)
     {
         $database = \DB::get_database();
-        $query = "SELECT * FROM account WHERE username = :username";
+        $query = "SELECT * FROM account WHERE username = :username OR email_or_phone = :email_or_phone";
         $result = $database->prepare($query);
         $result->execute(
             array(
                 ":username" => $username,
+                ":email_or_phone" => $email_or_phone
             )
         );
 
@@ -126,7 +126,7 @@ class User
                 ":new_email_or_phone" => $new_email_or_phone
             )
         );
-        
+
         return true;
     }
 }

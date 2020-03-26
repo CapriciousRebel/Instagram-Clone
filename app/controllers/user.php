@@ -2,17 +2,17 @@
 
 namespace Controller;
 
-class User
+class Userpage
 {
     public function get()
     {
         session_start();
 
-        if ($_SESSION["logged-in"] == 2) {
+        if ($_SESSION["logged-in"] == 1) {
             $username = $_SESSION["username"];
-            $user = \Model\User::getUser($username);
+            $user = \Model\User::getUser($username, $username);
 
-            echo \View\Loader::make()->render("templates/user_profile.twig", array(
+            echo \View\Loader::make()->render("templates/profile.twig", array(
                 "user" => $user,
             ));
         } else {
@@ -21,17 +21,39 @@ class User
     }
 }
 
+
+class SignUp
+{
+    public function get()
+    {
+        echo \View\Loader::make()->render("templates/signup.twig");;
+    }
+
+    public function post()
+    {
+        $name = $_POST["name"];
+        $email_or_phone = $_POST["email-phone"];
+        $username = $_POST["username"];
+        $password = $_POST["password"];
+
+        if (\Model\User::createUser($username, $password, $name, $email_or_phone)) {
+            $_SESSION['logged-in'] = 0;
+            header("Location: /");
+        };
+    }
+}
+
+
 class Edit
 {
     public function get()
     {
         session_start();
 
-        if ($_SESSION["logged-in"] == 2) {
+        if ($_SESSION["logged-in"] == 1) {
             $username = $_SESSION["username"];
-            $user = \Model\User::getUser($username);
-
-            echo \View\Loader::make()->render("templates/edit_profile.twig", array(
+            $user = \Model\User::getUser($username, $username);
+            echo \View\Loader::make()->render("templates/edit.twig", array(
                 "user" => $user,
             ));
         } else {
@@ -57,18 +79,14 @@ class Update
         }
 
         $username = $_SESSION["username"];
-
         $new_username = $values[0];
         $new_name = $values[1];
         $new_password = $values[2];
         $new_email_or_phone = $values[3];
 
-
-        echo \Model\User::updateUser($username, $new_username, $new_name, $new_password, $new_email_or_phone);
-
         if (\Model\User::updateUser($username, $new_username, $new_name, $new_password, $new_email_or_phone) == true) {
             $_SESSION["username"] = $new_username;
-            echo "succ";
+            echo "updated!";
         }
     }
 }

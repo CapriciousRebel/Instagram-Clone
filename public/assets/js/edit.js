@@ -18,7 +18,9 @@ $(document).ready(function() {
                 email_phone: email_phone
             },
             success: function(resp) {
-                $("#usernameShow").html("@" + username);
+                if (resp = "updated!") {
+                    $("#usernameShow").html("@" + username);
+                }
             }
         });
     });

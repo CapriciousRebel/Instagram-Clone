@@ -8,7 +8,7 @@ class Home
     {
         session_start();
 
-        if ($_SESSION["logged-in"] == 2 ) {
+        if ($_SESSION["logged-in"] == 1) {
             echo \View\Loader::make()->render("templates/homepage.twig");
 
         } else {

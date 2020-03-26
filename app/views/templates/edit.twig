@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Instagram</title>
+		<link rel="stylesheet" href="/assets/css/edit_style.css">
+		<link rel="icon" href="/assets/images/favicon.ico" type="image/gif" sizes="16x16">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	</head>
+	<body>
+		{% include "templates/nav-bar.twig" %}
+
+		<div class="content-user">
+			<div class="edit">
+
+				<div class="edit-form">
+
+					<h2 id="usernameShow">@{{user.username}}</h2>
+					<h2 class="highlight-grey">Update information</h2>
+
+					<form class="input-form" method="POST">
+						<input class="input-field" id="username" type="username" name="username" placeholder="Username">
+						<input class="input-field" id="name" type="text" name="name" placeholder="Name">
+						<input class="input-field" id="email_phone" type="text" name="email-phone" placeholder="Mobile Number or Email">
+						<input class="input-field" id="password" type="password" name="password" placeholder="Password">
+					</form>
+					<input class="submit-button" type="submit" value="Submit">
+
+				</div>
+			</div>
+		</div>
+
+		{%include "templates/footer.twig"%}
+		<script src="/assets/js/edit.js"></script>
+	</body>
+</html>
