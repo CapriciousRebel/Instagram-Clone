@@ -12,11 +12,24 @@
 	<body>
 		{% include "templates/nav-bar.twig" %}
 
-		<div class="content">
+		<div class="home-content">
 
 			<div class="posts">
 
-				<div class="post"></div>
+				{% for post in posts %}
+					<div class="post">
+						<div class="username">
+							{% if post.post == 0 %}
+								<img class="post-profile_image" src="{{post.path}}">
+							{% endif %}
+							<h2 class="post-username">{{post.username}}</h2>
+						</div>
+						<img class="post-image" src="{{post.path}}">
+						<div class="caption">
+							<h2 class="post-caption">{{post.caption}}</h2>
+						</div>
+					</div>
+				{% endfor %}
 			</div>
 
 		</div>

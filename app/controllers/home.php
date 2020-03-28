@@ -9,11 +9,16 @@ class Home
         session_start();
 
         if ($_SESSION["logged-in"] == 1) {
-            echo \View\Loader::make()->render("templates/homepage.twig");
 
+            $posts = \Model\Post::getPosts();
+            
+            shuffle($posts);
+
+            echo \View\Loader::make()->render("templates/homepage.twig", array(
+                "posts" => $posts
+            ));
         } else {
             echo \View\Loader::make()->render("templates/home.twig");
         }
     }
 }
-    
