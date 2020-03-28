@@ -37,7 +37,7 @@ class Userpage
         if ($_SESSION["logged-in"] == 1) {
 
             $user_id = $_SESSION["user_id"];
-            $user = \Model\User::getUser_id($user_id);
+            $user = \Model\User::getUser($user_id);
 
             echo \View\Loader::make()->render("templates/profile.twig", array(
                 "user" => $user,
@@ -59,7 +59,7 @@ class Edit
         if ($_SESSION["logged-in"] == 1) {
 
             $user_id = $_SESSION["user_id"];
-            $user = \Model\User::getUser_id($user_id);
+            $user = \Model\User::getUser($user_id);
 
             echo \View\Loader::make()->render("templates/edit.twig", array(
                 "user" => $user,
@@ -91,7 +91,7 @@ class Update
         $new_password = $values[2];
         $new_email_or_phone = $values[3];
 
-        if (\Model\User::updateUser_id($user_id, $new_username, $new_name, $new_password, $new_email_or_phone) == true) {
+        if (\Model\User::updateUser($user_id, $new_username, $new_name, $new_password, $new_email_or_phone) == true) {
             $_SESSION["username"] = $new_username;
             echo "updated!";
         }
@@ -123,7 +123,7 @@ class UpdateProfilePic
             echo 0;
         } else {
             if (move_uploaded_file($_FILES['file']['tmp_name'], $path)) {
-                \Model\User::updateProfilePic_id($user_id,$path);
+                \Model\User::updateProfilePic($user_id, $path);
                 echo $path;
             } else {
                 echo 0;

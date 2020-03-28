@@ -89,7 +89,7 @@ class User
     /**
      * returns the user's information O(1)
      */
-    public static function getUser_id($user_id)
+    public static function getUser($user_id)
     {
         $database = \DB::get_database();
 
@@ -109,7 +109,7 @@ class User
     /**
      * update the user data O(1)
      */
-    public static function updateUser_id($user_id, $new_username, $new_name, $new_password, $new_email_or_phone)
+    public static function updateUser($user_id, $new_username, $new_name, $new_password, $new_email_or_phone)
     {
         $database = \DB::get_database();
         $query = "UPDATE account SET username = :new_username, name = :new_name, password = :new_password, email_or_phone = :new_email_or_phone WHERE user_id = :user_id";
@@ -130,7 +130,7 @@ class User
     /**
      *  update the user's profile picture O(1)
      */
-    public static function updateProfilePic_id($user_id, $path)
+    public static function updateProfilePic($user_id, $path)
     {
 
         $database = \DB::get_database();
