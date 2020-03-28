@@ -2,14 +2,14 @@
 
 namespace Controller;
 
+
 class Login
 {
-
     public static function post()
-
     {
         $username = $_POST['username'];
         $password = $_POST['password'];
+        $password = md5($password);
 
         if (\Model\User::authenticateUser($username, $password) == true) {
             

@@ -2,6 +2,32 @@
 
 namespace Controller;
 
+// arranged according to the UX
+class SignUp
+{
+    public function get()
+    {
+        echo \View\Loader::make()->render("templates/signup.twig");;
+    }
+
+    public function post()
+    {
+        $name            = $_POST["name"];
+        $email_or_phone  = $_POST["email-phone"];
+        $username        = $_POST["username"];
+        $password        = $_POST["password"];
+
+        if (\Model\User::createUser($username, $password, $name, $email_or_phone)) {
+            // after sign-up, user MUST login again
+            $_SESSION['logged-in'] = 0;
+            $_SESSION['user_id'] = 0;
+
+            header("Location: /");
+        };
+    }
+}
+
+
 class Userpage
 {
     public function get()
@@ -22,26 +48,7 @@ class Userpage
 }
 
 
-class SignUp
-{
-    public function get()
-    {
-        echo \View\Loader::make()->render("templates/signup.twig");;
-    }
 
-    public function post()
-    {
-        $name = $_POST["name"];
-        $email_or_phone = $_POST["email-phone"];
-        $username = $_POST["username"];
-        $password = $_POST["password"];
-
-        if (\Model\User::createUser($username, $password, $name, $email_or_phone)) {
-            $_SESSION['logged-in'] = 0;
-            header("Location: /");
-        };
-    }
-}
 
 
 class Edit
@@ -91,7 +98,8 @@ class Update
     }
 }
 
-class UpdateProfile{
+class UpdateProfile
+{
 
     public function post()
     {
@@ -111,11 +119,11 @@ class UpdateProfile{
 
         if ($uploadOK == 0) {
             echo 0;
-        }else{
-            if(move_uploaded_file($_FILES['file']['tmp_name'],$location)){
+        } else {
+            if (move_uploaded_file($_FILES['file']['tmp_name'], $location)) {
                 \Model\User::updateProfilePic($location);
                 echo $location;
-            }else{
+            } else {
                 echo 0;
             }
         }

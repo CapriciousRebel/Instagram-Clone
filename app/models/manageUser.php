@@ -9,12 +9,12 @@ use PDOException;
 class User
 {
     /**
-     * check if a user already exists
+     * returns true if a user with given username or email_or_phone already exists
      */
     public static function userExists($username, $email_or_phone)
-
     {
         $database = \DB::get_database();
+
         try {
 
             $query = "SELECT * FROM account WHERE username = :username";
@@ -51,6 +51,7 @@ class User
     public static function createUser($username, $password, $name, $email_or_phone)
     {
         $database = \DB::get_database();
+        $password = md5($password);
 
         if (\Model\User::userExists($username, $email_or_phone)) {
             echo "User already exists!";
@@ -69,6 +70,7 @@ class User
     {
 
         $database = \DB::get_database();
+
 
         if (\Model\User::userExists($username, $username)) {
             $query = "SELECT * FROM account WHERE password = :password";
@@ -144,7 +146,7 @@ class User
                     WHERE user_id = ?;";
 
             $result = $database->prepare($query);
-            $result->execute([$path,$user_id]);
+            $result->execute([$path, $user_id]);
             return true;
         } else {
             return false;
