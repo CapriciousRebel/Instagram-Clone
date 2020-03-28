@@ -14,7 +14,6 @@ class Home
             $user = \Model\User::getUser($user_id);
 
             $posts = \Model\Post::getPosts();
-            shuffle($posts);
 
             echo \View\Loader::make()->render("templates/homepage.twig", array(
                 "posts" => $posts,

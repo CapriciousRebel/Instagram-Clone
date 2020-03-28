@@ -7,6 +7,7 @@
 		<title>Instagram</title>
 		<link rel="stylesheet" href="/assets/css/feed_style.css">
 		<link rel="icon" href="/assets/images/favicon.ico" type="image/gif" sizes="16x16">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	</head>
 
 	<body>
@@ -20,7 +21,7 @@
 					{% if post.path == "" %}
 
 						{% else %}
-							<div class="post">
+							<div class="post" id = "{{post.post_id}}">
 								<div class="username">
 
 									<img class="post-profile_image" src="{{post.profile_pic}}">
@@ -28,12 +29,15 @@
 									<h2 class="post-username">{{post.username}}</h2>
 								</div>
 								<img class="post-image" src="{{post.path}}">
+
 								<div class="caption">
+									<img class="post-like" id = "{{post.post_id}}" src="/assets/images/heart.png">
 									<h2 class="post-caption">{{post.caption}}</h2>
 								</div>
 							</div>
 					{% endif %}
 				{% endfor %}
+				<script src="/assets/js/feed.js"></script>
 			</div>
 
 		</div>

@@ -18,6 +18,15 @@ CREATE TABLE posts
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP(0)                                         
 );
 
+
+CREATE TABLE likes
+(
+    like_id SERIAL PRIMARY KEY,
+    post_id INT REFERENCES posts(post_id),
+    user_id INT REFERENCES account(user_id)
+);
+
+
 CREATE TABLE followers
 (
     follower_id SERIAL PRIMARY KEY,
