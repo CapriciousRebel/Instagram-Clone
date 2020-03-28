@@ -3,6 +3,7 @@ CREATE TABLE account
     user_id SERIAL PRIMARY KEY,
     username VARCHAR(63) NOT NULL UNIQUE,
     name VARCHAR(63),
+    profile_pic VARCHAR(1023),
     password VARCHAR(255) NOT NULL,
     email_or_phone VARCHAR(127) NOT NULL UNIQUE
 );
@@ -17,12 +18,10 @@ CREATE TABLE posts
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP(0)                                         
 );
 
-
-
-    CREATE TABLE followers
-    (
-        follower_id SERIAL PRIMARY KEY,
-        follow VARCHAR(255) REFERENCES account(username),
-        follower VARCHAR(255)
-    );
+CREATE TABLE followers
+(
+    follower_id SERIAL PRIMARY KEY,
+    follow VARCHAR(255) REFERENCES account(username),
+    follower VARCHAR(255)
+);
 

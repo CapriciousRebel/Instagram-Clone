@@ -27,7 +27,7 @@ class Upload
         $filename = $_FILES['file']['name'];
         $caption = $_POST['caption'];
 
-        $location = "assets/uploads/" . $filename;
+        $location = "assets/uploads/posts/" . $filename;
         $uploadOK = 1;
         $imageFileType = pathinfo($location, PATHINFO_EXTENSION);
         $validExtensions = array("jpg", "jpeg", "png");

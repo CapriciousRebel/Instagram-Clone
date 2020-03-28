@@ -129,4 +129,42 @@ class User
 
         return true;
     }
+
+    public static function updateProfilePic($path)
+    {
+        $username = $_SESSION["username"];
+
+        $database = \DB::get_database();
+
+        if (\Model\User::userExists($username, $username)) {
+            $user = \Model\User::getUser($username, $username);
+            $user_id = $user['user_id'];
+            $query = "UPDATE account                                                                                                                              
+                    SET profile_pic = ?                                                                                                                                                           
+                    WHERE user_id = ?;";
+
+            $result = $database->prepare($query);
+            $result->execute([$path,$user_id]);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static function getProfilePic()
+    {
+        $username = $_SESSION["username"];
+        $database = \DB::get_database();
+
+        if (\Model\User::userExists($username, $username)) {
+            $query = "SELECT account.user_id,username,caption,path FROM posts
+            FULL JOIN account ON account.user_id = posts.user_id;";
+            $result = $database->prepare($query);
+            $result->execute();
+
+            $posts = $result->fetchAll(PDO::FETCH_ASSOC);
+
+            return $posts;
+        }
+    }
 }

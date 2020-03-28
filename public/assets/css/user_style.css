@@ -1,4 +1,9 @@
 @import 'feed_style.css';
+@import 'edit_style.css';
+.edit {
+    width: 100%;
+}
+
 .content-user {
     display: flex;
     flex-direction: column;

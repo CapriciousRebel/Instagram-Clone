@@ -16,4 +16,5 @@ Toro::serve(array(
     "/edit" => "\Controller\Edit",
     "/update" => "\Controller\Update",
     "/upload" => "\Controller\Upload",
+    "/upload_profile" => "\Controller\UpdateProfile",
 ));

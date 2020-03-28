@@ -7,16 +7,31 @@
 		<title>Instagram</title>
 		<link rel="stylesheet" href="/assets/css/user_style.css">
 		<link rel="icon" href="/assets/images/favicon.ico" type="image/gif" sizes="16x16">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	</head>
 
 	<body>
 		{% include "templates/nav-bar.twig" %}
-
 		<div class="content-user">
+
+			<div class="edit" style="display:none;">
+				<div class="edit-form">
+
+					<h2 class="highlight-grey">Change Profile Photo</h2>
+
+					<form class="input-form" method="POST" enctype="multipart/form-data">
+						<input class="input-field" id="image_input" type="file" name="image_input">
+					</form>
+					<input class="submit-button" type="submit" value="Submit">
+					<div class="preview">
+						<img src="" id="image" width="200px" height="200px" alt="">
+					</div>
+				</div>
+			</div>
 
 			<div class="user">
 				<div class="user-image">
-					<img src="/assets/images/smith.png" style="max-width:150px;">
+					<img id="profile-pic" src="/assets/images/smith.png" style="max-width:150px;">
 				</div>
 				<div class="user-main">
 					<div class="user-element" id="username">
@@ -60,6 +75,6 @@
 			</div>
 
 		</div>
-
 		{%include "templates/footer.twig"%}</body>
+	<script src="/assets/js/profile.js"></script>
 </html></body></html></body></html>
