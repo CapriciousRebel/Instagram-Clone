@@ -36,7 +36,9 @@ class Userpage
 
         if ($_SESSION["logged-in"] == 1) {
             $username = $_SESSION["username"];
-            $user = \Model\User::getUser($username, $username);
+            $user_id = $_SESSION["user_id"];
+
+            $user = \Model\User::getUser_id($user_id);
 
             echo \View\Loader::make()->render("templates/profile.twig", array(
                 "user" => $user,

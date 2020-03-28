@@ -55,6 +55,7 @@ class User
 
         if (\Model\User::userExists($username, $email_or_phone)) {
             echo "User already exists!";
+            // implement js here
         } else {
             $query = "INSERT INTO account(username,password,name,email_or_phone) VALUES(?,?,?,?);";
             $result = $database->prepare($query);
@@ -64,13 +65,12 @@ class User
     }
 
     /**
-     * verify the user's password against their username
+     * verify the user's password against their username and password
      */
     public static function authenticateUser($username, $password)
     {
 
         $database = \DB::get_database();
-
 
         if (\Model\User::userExists($username, $username)) {
             $query = "SELECT * FROM account WHERE password = :password";
@@ -102,6 +102,23 @@ class User
             array(
                 ":username" => $username,
                 ":email_or_phone" => $email_or_phone
+            )
+        );
+
+        $user = $result->fetch(PDO::FETCH_ASSOC);
+
+        return $user;
+    }
+
+    public static function getUser_id($user_id)
+    {
+        $database = \DB::get_database();
+
+        $query = "SELECT * FROM account WHERE user_id = :user_id";
+        $result = $database->prepare($query);
+        $result->execute(
+            array(
+                ":user_id" => $user_id,
             )
         );
 
