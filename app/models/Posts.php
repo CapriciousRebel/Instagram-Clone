@@ -32,7 +32,7 @@ class Post
         $database = \DB::get_database();
 
         if (\Model\User::userExists($username, $username)) {
-            $query = "SELECT account.user_id,username,caption,path FROM posts
+            $query = "SELECT account.user_id,username,caption,path,profile_pic FROM posts
             FULL JOIN account ON account.user_id = posts.user_id;";
             $result = $database->prepare($query);
             $result->execute();
