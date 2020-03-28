@@ -110,6 +110,9 @@ class User
         return $user;
     }
 
+    /**
+     * returns the user's information O(1)
+     */
     public static function getUser_id($user_id)
     {
         $database = \DB::get_database();
@@ -128,62 +131,40 @@ class User
     }
 
     /**
-     * update the user data
+     * update the user data O(1)
      */
-    public static function updateUser($username, $new_username, $new_name, $new_password, $new_email_or_phone)
+    public static function updateUser_id($user_id, $new_username, $new_name, $new_password, $new_email_or_phone)
     {
         $database = \DB::get_database();
-        $query = "UPDATE account SET username = :new_username, name = :new_name, password = :new_password, email_or_phone = :new_email_or_phone WHERE username = :username";
+        $query = "UPDATE account SET username = :new_username, name = :new_name, password = :new_password, email_or_phone = :new_email_or_phone WHERE user_id = :user_id";
         $result = $database->prepare($query);
 
         $result->execute(
             array(
-                ":username" => $username,
+                ":user_id" => $user_id,
                 ":new_username" => $new_username,
                 ":new_name" => $new_name,
                 ":new_password" => $new_password,
                 ":new_email_or_phone" => $new_email_or_phone
             )
         );
-
         return true;
     }
 
-    public static function updateProfilePic($path)
+    /**
+     *  update the user's profile picture O(1)
+     */
+    public static function updateProfilePic_id($user_id, $path)
     {
-        $username = $_SESSION["username"];
 
         $database = \DB::get_database();
 
-        if (\Model\User::userExists($username, $username)) {
-            $user = \Model\User::getUser($username, $username);
-            $user_id = $user['user_id'];
-            $query = "UPDATE account                                                                                                                              
+        $query = "UPDATE account                                                                                                                              
                     SET profile_pic = ?                                                                                                                                                           
                     WHERE user_id = ?;";
 
-            $result = $database->prepare($query);
-            $result->execute([$path, $user_id]);
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public static function getProfilePic()
-    {
-        $username = $_SESSION["username"];
-        $database = \DB::get_database();
-
-        if (\Model\User::userExists($username, $username)) {
-            $query = "SELECT account.user_id,username,caption,path FROM posts
-            FULL JOIN account ON account.user_id = posts.user_id;";
-            $result = $database->prepare($query);
-            $result->execute();
-
-            $posts = $result->fetchAll(PDO::FETCH_ASSOC);
-
-            return $posts;
-        }
+        $result = $database->prepare($query);
+        $result->execute([$path, $user_id]);
+        return true;
     }
 }

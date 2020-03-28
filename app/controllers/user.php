@@ -35,9 +35,8 @@ class Userpage
         session_start();
 
         if ($_SESSION["logged-in"] == 1) {
-            $username = $_SESSION["username"];
-            $user_id = $_SESSION["user_id"];
 
+            $user_id = $_SESSION["user_id"];
             $user = \Model\User::getUser_id($user_id);
 
             echo \View\Loader::make()->render("templates/profile.twig", array(
@@ -51,8 +50,6 @@ class Userpage
 
 
 
-
-
 class Edit
 {
     public function get()
@@ -60,8 +57,10 @@ class Edit
         session_start();
 
         if ($_SESSION["logged-in"] == 1) {
-            $username = $_SESSION["username"];
-            $user = \Model\User::getUser($username, $username);
+
+            $user_id = $_SESSION["user_id"];
+            $user = \Model\User::getUser_id($user_id);
+
             echo \View\Loader::make()->render("templates/edit.twig", array(
                 "user" => $user,
             ));
@@ -82,37 +81,38 @@ class Update
         $put = explode("&", $_PUT);
 
         $values = array();
-
         foreach ($put as $put_argument) {
             array_push($values, explode("=", $put_argument)[1]);
         }
 
-        $username = $_SESSION["username"];
+        $user_id = $_SESSION["user_id"];
         $new_username = $values[0];
         $new_name = $values[1];
         $new_password = $values[2];
         $new_email_or_phone = $values[3];
 
-        if (\Model\User::updateUser($username, $new_username, $new_name, $new_password, $new_email_or_phone) == true) {
+        if (\Model\User::updateUser_id($user_id, $new_username, $new_name, $new_password, $new_email_or_phone) == true) {
             $_SESSION["username"] = $new_username;
             echo "updated!";
         }
     }
 }
 
-class UpdateProfile
+class UpdateProfilePic
 {
 
     public function post()
     {
         session_start();
 
+        $user_id = $_SESSION["user_id"];
+
         $filename = $_FILES['file']['name'];
         $caption = $_POST['caption'];
 
-        $location = "assets/uploads/profile_pics/" . $filename;
+        $path = "assets/uploads/profile_pics/" . $filename;
         $uploadOK = 1;
-        $imageFileType = pathinfo($location, PATHINFO_EXTENSION);
+        $imageFileType = pathinfo($path, PATHINFO_EXTENSION);
         $validExtensions = array("jpg", "jpeg", "png");
 
         if (!in_array(strtolower($imageFileType), $validExtensions)) {
@@ -122,9 +122,9 @@ class UpdateProfile
         if ($uploadOK == 0) {
             echo 0;
         } else {
-            if (move_uploaded_file($_FILES['file']['tmp_name'], $location)) {
-                \Model\User::updateProfilePic($location);
-                echo $location;
+            if (move_uploaded_file($_FILES['file']['tmp_name'], $path)) {
+                \Model\User::updateProfilePic_id($user_id,$path);
+                echo $path;
             } else {
                 echo 0;
             }
