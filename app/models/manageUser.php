@@ -91,7 +91,7 @@ class User
     }
 
     /**
-     * returns the user's information
+     * returns the user's information O(log(N))
      */
     public static function getUser($username, $email_or_phone)
     {

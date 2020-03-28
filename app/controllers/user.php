@@ -2,7 +2,7 @@
 
 namespace Controller;
 
-// arranged according to the UX
+
 class SignUp
 {
     public function get()
