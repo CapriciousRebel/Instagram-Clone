@@ -37,7 +37,7 @@ class Upload
             echo 0;
         } else {
             if (move_uploaded_file($_FILES['file']['tmp_name'], $path)) {
-                \Model\Post::createPost($user_id,$path, $caption);
+                \Model\Post::createPost($user_id, $path, $caption);
                 echo $path;
             } else {
                 echo 0;

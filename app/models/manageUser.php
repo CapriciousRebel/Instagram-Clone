@@ -80,34 +80,10 @@ class User
                     ":password" => $password,
                 )
             );
-            $password_verified = $result->fetch(PDO::FETCH_ASSOC);
+            $user = $result->fetch(PDO::FETCH_ASSOC);
 
-            if ($password_verified) {
-                return true;
-            } else {
-                return false;
-            }
+            return $user;
         }
-    }
-
-    /**
-     * returns the user's information O(log(N))
-     */
-    public static function getUser($username, $email_or_phone)
-    {
-        $database = \DB::get_database();
-        $query = "SELECT * FROM account WHERE username = :username OR email_or_phone = :email_or_phone";
-        $result = $database->prepare($query);
-        $result->execute(
-            array(
-                ":username" => $username,
-                ":email_or_phone" => $email_or_phone
-            )
-        );
-
-        $user = $result->fetch(PDO::FETCH_ASSOC);
-
-        return $user;
     }
 
     /**

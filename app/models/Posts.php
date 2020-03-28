@@ -22,12 +22,15 @@ class Post
         return true;
     }
 
+    /**
+     * returns all the data for the posts
+     */
     public static function getPosts()
     {
         $database = \DB::get_database();
 
         $query = "SELECT account.user_id,username,caption,path,profile_pic FROM posts
-            FULL JOIN account ON account.user_id = posts.user_id;";
+                  FULL JOIN account ON account.user_id = posts.user_id;";
         $result = $database->prepare($query);
         $result->execute();
 

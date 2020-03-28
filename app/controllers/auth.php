@@ -11,14 +11,13 @@ class Login
         $password = $_POST['password'];
         $password = md5($password);
 
-        if (\Model\User::authenticateUser($username, $password) == true) {
-            $user = \Model\User::getUser($username, $username);
-            $username = $user['username'];
-            $user_id = $user['user_id'];
+        $user = \Model\User::authenticateUser($username, $password);
+
+        if ($user) {
 
             $_SESSION["logged-in"] = 1;
-            $_SESSION["username"] = $username;
-            $_SESSION["user_id"] = $user_id;
+            $_SESSION["username"] = $user['username'];
+            $_SESSION["user_id"] = $user['user_id'];
 
             echo "verified";
         } else {
@@ -36,7 +35,7 @@ class Logout
         $_SESSION["logged-in"] = 0;
         $_SESSION["username"] = "";
         $_SESSION["user_id"] = 0;
-        
+
         header("Location: /");
     }
 }
