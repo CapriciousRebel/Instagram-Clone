@@ -29,10 +29,9 @@ class Post
     {
         $database = \DB::get_database();
 
-        $query = "SELECT account.user_id, likes.post_id, username, caption, path, profile_pic, created_at ,posts.post_id
+        $query = "SELECT account.user_id, username, caption, path, profile_pic, posts.post_id
                   FROM account 
-                  FULL JOIN posts ON account.user_id = posts.user_id 
-                  FULL JOIN likes ON likes.post_id = posts.post_id                                                           
+                  FULL JOIN posts ON account.user_id = posts.user_id                                                          
                   ORDER BY created_at;";
         $result = $database->prepare($query);
         $result->execute();
@@ -41,6 +40,9 @@ class Post
         return $posts;
     }
 
+    /**
+     * returns true if a like exists for the given user-post
+     */
     public static function likeExists($like_uniq)
     {
         $database = \DB::get_database();

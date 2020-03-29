@@ -19,7 +19,6 @@
 
 				{% for post in posts %}
 					{% if post.path == "" %}
-
 						{% else %}
 							<div class="post" id="post-{{post.post_id}}">
 								<div class="username">
@@ -31,7 +30,12 @@
 								<img class="post-image" src="{{post.path}}">
 
 								<div class="caption">
-									<img class="post-like" id="{{post.post_id}}" src="/assets/images/heart.png">
+									{% if post.liked == "true" %}
+										<img class="post-like" id="{{post.post_id}}" src="/assets/images/heart_activated.png">
+									{% else %}
+										<img class="post-like" id="{{post.post_id}}" src="/assets/images/heart.png">
+									{% endif %}
+									<h3 class="like-count">x likes</h3>
 									<h2 class="post-caption">{{post.caption}}</h2>
 								</div>
 							</div>
@@ -42,4 +46,4 @@
 
 		</div>
 	</body>
-</html></body></html>
+</html></body></html></body></html>
