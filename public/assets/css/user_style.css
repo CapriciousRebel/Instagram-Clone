@@ -12,7 +12,7 @@
 }
 
 .user {
-    width: 60%;
+    width: 70%;
     display: grid;
     grid-template: 1fr / 1fr 2fr 1fr;
     height: 250px;
@@ -24,6 +24,11 @@
     align-self: flex-start;
     padding-top: 50px;
     justify-self: center;
+}
+
+#profile-pic {
+    border: 1px solid black;
+    border-radius: 50%;
 }
 
 .user-main {
@@ -78,21 +83,15 @@
 }
 
 .user-posts {
-    width: 50%;
-    margin-top: 50px;
+    width: 70%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-}
-
-.user-post {
-    padding: 10px;
+    align-items: center;
+    justify-content: center;
 }
 
 .post-image {
-    max-width: 100%;
-}
-
-#profile-pic {
-    border: 1px solid black;
-    border-radius: 50%;
+    margin: 10px;
+    padding: 10px;
+    width: 80%;
 }

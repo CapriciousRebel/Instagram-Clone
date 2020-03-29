@@ -33,7 +33,7 @@
 				<div class="user-image">
 					{% if user.profile_pic == "" %}
 						<img id="profile-pic" src="/assets/images/nav-bar/placeholder.png" style="max-width:150px;">
-						{% else %}
+					{% else %}
 						<img id="profile-pic" src="{{user.profile_pic}}" style="max-width:150px;">
 					{% endif %}
 				</div>
@@ -48,7 +48,8 @@
 
 					</div>
 					<div class="user-element" id="noofposts">
-						<h4>{{post_count}} Posts</h4>
+						<h4>{{post_count}}
+							Posts</h4>
 					</div>
 					<div class="user-element">
 						<h4>x Followers</h4>
@@ -67,17 +68,12 @@
 
 			</div>
 			<div class="user-posts">
-				<div class="user-post">
-					<img class="post-image" src="/assets/images/smith-post.png">
-				</div>
-				<div class="user-post">
-					<img class="post-image" src="/assets/images/smith-post.png" style="max-width:100%;">
-				</div>
-				<div class="user-post">
-					<img class="post-image" src="/assets/images/smith-post.png" style="max-width:100%;">
-				</div>
-			</div>
+				{% for post in posts %}
 
+					<img class="post-image" src="{{post.path}}">
+
+				{% endfor %}
+			</div>
 		</div>
 		{%include "templates/footer.twig"%}</body>
 	<script src="/assets/js/profile.js"></script>

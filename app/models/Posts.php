@@ -41,6 +41,27 @@ class Post
     }
 
     /**
+     * returns all the data for the posts
+     */
+    public static function getUserPosts($user_id)
+    {
+        $database = \DB::get_database();
+
+        $query = "SELECT * FROM posts
+                  WHERE user_id = :user_id                 
+                  ORDER BY created_at;";
+        $result = $database->prepare($query);
+        $result->execute(
+            array(
+                ":user_id" => $user_id,
+            )
+        );
+
+        $posts = $result->fetchAll(PDO::FETCH_ASSOC);
+        return $posts;
+    }
+
+    /**
      * returns the number of posts for the given user_id
      */
     public static function countPosts($user_id)
