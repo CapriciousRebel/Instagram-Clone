@@ -29,12 +29,7 @@ class Post
     {
         $database = \DB::get_database();
 
-        $query = "SELECT account.user_id,username,caption,path,profile_pic,created_at 
-                  FROM posts
-                  FULL JOIN account ON account.user_id = posts.user_id
-                  ORDER BY created_at DESC;";
-
-        $query = "SELECT account.user_id,username,caption,path,profile_pic,created_at,likes.post_id ,posts.post_id
+        $query = "SELECT account.user_id, likes.post_id, username, caption, path, profile_pic, created_at ,posts.post_id
                   FROM account 
                   FULL JOIN posts ON account.user_id = posts.user_id 
                   FULL JOIN likes ON likes.post_id = posts.post_id                                                           
@@ -46,16 +41,44 @@ class Post
         return $posts;
     }
 
-    /**
-     * $user_id likes a post with $post_id
-     */
-    public static function likePost($user_id, $post_id)
+    public static function likeExists($like_uniq)
     {
         $database = \DB::get_database();
 
-        $query = "INSERT INTO likes(user_id,post_id) VALUES(?,?);";
+        $query = "SELECT * FROM likes WHERE like_uniq = :like_uniq";
         $result = $database->prepare($query);
-        $result->execute([$user_id,$post_id]);
-        return true;
+        $result->execute(
+            array(
+                ":like_uniq" => $like_uniq,
+            )
+        );
+        $like_exists = $result->fetch(PDO::FETCH_ASSOC);
+
+        if ($like_exists) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * $user_id likes a post with $post_id
+     */
+    public static function likePost($user_id, $post_id, $like_uniq)
+    {
+        $database = \DB::get_database();
+
+        if (\Model\Post::likeExists($like_uniq)) {
+            
+            $query = "DELETE FROM likes WHERE like_uniq = :like_uniq;";
+            $result = $database->prepare($query);
+            $result->execute([$like_uniq]);
+
+        } else {
+            $query = "INSERT INTO likes(user_id,post_id,like_uniq) VALUES(?,?,?);";
+            $result = $database->prepare($query);
+            $result->execute([$user_id, $post_id, $like_uniq]);
+            return true;
+        }
     }
 }

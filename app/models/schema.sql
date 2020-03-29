@@ -23,7 +23,8 @@ CREATE TABLE likes
 (
     like_id SERIAL PRIMARY KEY,
     post_id INT REFERENCES posts(post_id),
-    user_id INT REFERENCES account(user_id)
+    user_id INT REFERENCES account(user_id),
+    like_uniq VARCHAR(2)
 );
 
 
