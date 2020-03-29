@@ -27,6 +27,14 @@ CREATE TABLE likes
     like_uniq VARCHAR(2)
 );
 
+CREATE TABLE comments
+(
+    comment_id SERIAL PRIMARY KEY,
+    post_id INT REFERENCES posts(post_id),
+    user_id INT REFERENCES account(user_id),
+    comment_uniq VARCHAR(2)
+);
+
 
 CREATE TABLE followers
 (

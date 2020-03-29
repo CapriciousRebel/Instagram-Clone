@@ -43,7 +43,7 @@ class Userpage
 
             echo \View\Loader::make()->render("templates/profile.twig", array(
                 "user" => $user,
-                "post_count" => $post_count['count'],
+                "post_count" => $post_count,
                 "posts" => $posts,
             ));
         } else {

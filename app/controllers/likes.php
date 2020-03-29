@@ -19,7 +19,7 @@ class Like
         $post_id = $values[0];
         $like_uniq = strval($post_id) . strval($user_id);
 
-        if (\Model\Post::likePost($user_id, $post_id, $like_uniq) == true) {
+        if (\Model\Like::likePost($user_id, $post_id, $like_uniq) == true) {
             echo "liked!";
         } else {
             echo "failed!";

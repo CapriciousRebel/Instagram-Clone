@@ -17,5 +17,6 @@ Toro::serve(array(
     "/update" => "\Controller\Update",
     "/upload" => "\Controller\Upload",
     "/like" => "\Controller\Like",
+    "/comment" => "\Controller\Comment",
     "/upload_profile" => "\Controller\UpdateProfilePic",
 ));

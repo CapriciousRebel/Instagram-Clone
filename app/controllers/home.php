@@ -25,9 +25,9 @@ class Home
                 $post_id = $posts[$x]['post_id'];
                 $like_uniq = strval($post_id) . strval($user_id);
 
-                $posts[$x]["likes"] = \Model\Post::countLikes($post_id);
+                $posts[$x]["likes"] = \Model\Like::countLikes($post_id);
 
-                if (\Model\Post::likeExists($like_uniq)) {
+                if (\Model\Like::likeExists($like_uniq)) {
                     $posts[$x]["liked"] = "true";
                 } else {
                     $posts[$x]["liked"] = "false";

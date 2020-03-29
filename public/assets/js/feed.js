@@ -1,6 +1,10 @@
 $(document).ready(function() {
     $('.post-like').hover().css("cursor", "pointer");
 
+    $("input").focus(function() {
+        $(this).css("border", "none");
+    });
+
     $('.post-like').click(function() {
 
         post_id = $(this).attr("id");
@@ -26,5 +30,27 @@ $(document).ready(function() {
                 }
             }
         })
+    });
+
+    $('.submit-button').click(function(e) {
+        e.preventDefault();
+
+        post_id = $(this).parent().parent().siblings("img").attr("id");
+        comment = $(this).siblings("input").val();
+
+        $.ajax({
+            type: "POST",
+            url: "/comment",
+            data: {
+                post_id: post_id,
+                comment: comment
+            },
+            success: function(resp) {
+                console.log(resp);
+            }
+
+        })
+
+
     });
 });
