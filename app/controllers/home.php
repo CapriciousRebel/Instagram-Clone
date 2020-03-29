@@ -26,7 +26,7 @@ class Home
                 $like_uniq = strval($post_id) . strval($user_id);
 
                 $posts[$x]["likes"] = \Model\Post::countLikes($post_id);
-                
+
                 if (\Model\Post::likeExists($like_uniq)) {
                     $posts[$x]["liked"] = "true";
                 } else {
@@ -36,7 +36,7 @@ class Home
 
             echo \View\Loader::make()->render("templates/homepage.twig", array(
                 "posts" => $posts,
-                "user" => $user
+                "user" => $user,
             ));
         } else {
             echo \View\Loader::make()->render("templates/home.twig");

@@ -41,6 +41,26 @@ class Post
     }
 
     /**
+     * returns the number of posts for the given user_id
+     */
+    public static function countPosts($user_id)
+    {
+        $database = \DB::get_database();
+        $query = "SELECT COUNT(user_id) 
+                  FROM posts                   
+                  WHERE user_id = :user_id;";
+
+        $result = $database->prepare($query);
+        $result->execute(
+            array(
+                ":user_id" => $user_id,
+            )
+        );
+        $post_count = $result->fetch(PDO::FETCH_ASSOC);
+        return ($post_count);
+    }
+
+    /**
      * returns true if a like exists for the given user-post
      */
     public static function likeExists($like_uniq)
@@ -80,8 +100,8 @@ class Post
                 ":post_id" => $post_id,
             )
         );
-        $like_exists = $result->fetch(PDO::FETCH_ASSOC);
-        return($like_exists);
+        $like_count = $result->fetch(PDO::FETCH_ASSOC);
+        return ($like_count);
     }
 
     /**

@@ -37,9 +37,7 @@
 									{% endif %}
 									<div class="likes">
 										<h3 class="like-count">
-											{% for like in post.likes %}
-												{{like}}
-											{% endfor %}
+											{{post.likes['count']}}
 										</h3>
 										<h3 class = "like-text">likes</h3>
 									</div>
