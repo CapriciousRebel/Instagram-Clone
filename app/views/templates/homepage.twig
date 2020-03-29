@@ -35,7 +35,14 @@
 									{% else %}
 										<img class="post-like" id="{{post.post_id}}" src="/assets/images/heart.png">
 									{% endif %}
-									<h3 class="like-count">x likes</h3>
+									<div class="likes">
+										<h3 class="like-count">
+											{% for like in post.likes %}
+												{{like}}
+											{% endfor %}
+										</h3>
+										<h3 class = "like-text">likes</h3>
+									</div>
 									<h2 class="post-caption">{{post.caption}}</h2>
 								</div>
 							</div>

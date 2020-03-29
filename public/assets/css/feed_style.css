@@ -91,6 +91,14 @@
     flex-direction: column;
 }
 
+.likes {
+    display: flex;
+}
+
+.like-count {
+    padding-right: 10px;
+}
+
 .post-like {
     width: 30px;
     height: 30px;
