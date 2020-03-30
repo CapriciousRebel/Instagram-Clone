@@ -40,10 +40,14 @@ class Userpage
             $user = \Model\User::getUser($user_id);
             $post_count = \Model\Post::countPosts($user_id);
             $posts = \Model\Post::getUserPosts($user_id);
+            $follower_count = \Model\Follow::countFollowers($user_id);
+            $following_count = \Model\Follow::countFollowing($user_id);
 
             echo \View\Loader::make()->render("templates/profile.twig", array(
                 "user" => $user,
                 "post_count" => $post_count,
+                "follower_count" => $follower_count,
+                "following_count" => $following_count,
                 "posts" => $posts,
             ));
         } else {

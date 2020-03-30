@@ -82,17 +82,40 @@ class Follow
     {
         $database = \DB::get_database();
 
-        $query = "SELECT COUNT(user_id)
-                  FROM followers
-                  WHERE user_id = :user_id";
+        $query = "SELECT COUNT(follower) 
+                  FROM followers                        
+                  WHERE follower = :follower;";
 
         $result = $database->prepare($query);
         $result->execute(
             array(
-                ":user_id" => $user_id,
+                ":follower" => $user_id,
             )
         );
         $follow_count = $result->fetch(PDO::FETCH_ASSOC);
         return ($follow_count['count']);
     }
+
+    /**
+     * returns the number of followers of $user_id
+     */
+    public static function countFollowing($user_id)
+    {
+        $database = \DB::get_database();
+
+        $query = "SELECT COUNT(follow) 
+                  FROM followers                        
+                  WHERE follow = :follow;";
+
+        $result = $database->prepare($query);
+        $result->execute(
+            array(
+                ":follow" => $user_id,
+            )
+        );
+        $follow_count = $result->fetch(PDO::FETCH_ASSOC);
+        return ($follow_count['count']);
+    }
+
+
 }
