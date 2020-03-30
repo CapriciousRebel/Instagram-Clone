@@ -7,7 +7,7 @@ class SignUp
 {
     public function get()
     {
-        echo \View\Loader::make()->render("templates/signup.twig");;
+        echo \View\Loader::make()->render("templates/signup.twig");
     }
 
     public function post()
@@ -137,5 +137,21 @@ class UpdateProfilePic
                 echo 0;
             }
         }
+    }
+}
+
+class User
+{
+    public function get()
+    {
+        $user_id = $_GET['user_id'];
+        $user = \Model\User::getUser($user_id);
+        
+        echo \View\Loader::make()->render(
+            "templates/user.twig",
+            array(
+                "user" => $user,   
+            )
+        );
     }
 }

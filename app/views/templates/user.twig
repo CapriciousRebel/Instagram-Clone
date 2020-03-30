@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Instagram</title>
+		<link rel="stylesheet" href="/assets/css/user_style.css">
+		<link rel="icon" href="/assets/images/favicon.ico" type="image/gif" sizes="16x16">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	</head>
+
+	<body>
+		{% include "templates/nav-bar.twig" %}
+		<div class="content-user">
+
+			<div class="user">
+				<div class="user-image">
+					{% if user.profile_pic == "" %}
+						<img id="profile-pic" src="/assets/images/nav-bar/placeholder.png" style="max-width:150px;">
+					{% else %}
+						<img id="profile-pic" src="{{user.profile_pic}}" style="max-width:150px;">
+					{% endif %}
+				</div>
+				<div class="user-main">
+					<div class="user-element" id="username">
+						<h1>@{{user.username}}</h1>
+					</div>
+					<div class="user-element" id="button">
+
+					</div>
+					<div class="user-element" id="noofposts">
+						<h4>{{post_count}}
+							Posts</h4>
+					</div>
+					<div class="user-element">
+						<h4>{{follower_count}} Followers</h4>
+					</div>
+					<div class="user-element">
+						<h4>{{following_count}} Following</h4>
+					</div>
+					<div class="user-element" id="user_name">
+						<h4>{{user.name}}</h4>
+					</div>
+				</div>
+
+				<h4 id="logout">
+			
+				</h4>
+
+			</div>
+			<div class="user-posts">
+				{% for post in posts %}
+
+					<img class="post-image" src="{{post.path}}">
+
+				{% endfor %}
+			</div>
+		</div>
+		{%include "templates/footer.twig"%}</body>
+	<script src="/assets/js/profile.js"></script>
+</html></body></html></body></html>

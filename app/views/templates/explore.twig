@@ -23,7 +23,7 @@
 								<img class="profile-pic" src="{{current_user.profile_pic}}">
 								<div class="user-data">
 									<h1 class="username">
-										@{{current_user.username}}
+										<a href="\user?user_id={{current_user.user_id}}">@{{current_user.username}}</a>
 									</h1>
 									{% if current_user.follows == "true" %}
 										<h3 class="follow-data highlight-grey">

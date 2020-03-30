@@ -23,7 +23,7 @@ class Post
     }
 
     /**
-     * returns all the data for the posts
+     * returns all the posts
      */
     public static function getPosts()
     {

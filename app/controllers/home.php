@@ -23,6 +23,7 @@ class Home
             $posts = \Model\Post::getPosts();
             $posts = array_reverse($posts);
 
+
             for ($x = 0; $x < count($posts); $x++) {
 
                 $post_id = $posts[$x]['post_id'];
