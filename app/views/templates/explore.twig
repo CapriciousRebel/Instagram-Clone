@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Instagram</title>
+		<link rel="stylesheet" href="/assets/css/explore_style.css">
+		<link rel="icon" href="/assets/images/favicon.ico" type="image/gif" sizes="16x16">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	</head>
+
+	<body>
+		{% include "templates/nav-bar.twig" %}
+
+		<div class="explore-container">
+			<div class="explore-main">
+
+				{% for user in users %}
+					<div class="user-card">
+						<img class="profile-pic" src="{{user.profile_pic}}">
+						<div class="user-data">
+							<h1 class="username">
+								@{{user.username}}
+							</h1>
+							<h3 class="follow-data highlight-grey">
+								Suggested for you</h3>
+						</div>
+						<div class="follow" id="{{user.user_id}}">
+							Follow
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+			<script src="/assets/js/explore.js"></script>
+
+		</div>
+	</body>
+</html></body></html></body></html>

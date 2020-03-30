@@ -1,17 +1,25 @@
-<div class="navbar">
+<div class="navbar-container">
+	<div class="navbar">
+		<a href="/upload"><img id="upload" src="assets/images/nav-bar/camera.png" alt=""></a>
 
-	<a href="/upload"><img class='navbar-img' id="upload" src="assets/images/nav-bar/camera.png" alt=""></a>
-	<a href="/"><img class='navbar-img' id="logo" src="assets/images/nav-bar/logo.png" alt=""></a>
-	<span class="search-box">
+		<a href="/"><img id="logo" src="assets/images/nav-bar/logo.png" alt=""></a>
+
+
 		<form class="search-form" method="POST">
 			<input class="input-field" id="search" type="text" name="search" placeholder="Search">
 		</form>
-	</span>
-	<a href="/"><img class='navbar-img' id="home" src="assets/images/nav-bar/home.png" alt=""></a>
-	<a href="/trending"><img class='navbar-img' id="trending" src="assets/images/nav-bar/trending.png" alt=""></a>
-	{% if user.profile_pic == "" %}
-		<a href="/user"><img class='navbar-img' id="user-image" src="/assets/images/nav-bar/placeholder.png" alt=""></a>
-	{% else %}
-		<a href="/user"><img class='navbar-img' id="user-image" src="{{user.profile_pic}}" alt=""></a>
-	{% endif %}
+
+
+		<a href="/"><img id="home" src="assets/images/nav-bar/home.png" alt=""></a>
+
+		<a href="/trending"><img id="trending" src="assets/images/nav-bar/trending.png" alt=""></a>
+
+		<a href="/explore"><img id="users" src="assets/images/heart.png"></a>
+
+		{% if user.profile_pic == "" %}
+			<a href="/profile"><img id="user-image" src="/assets/images/nav-bar/placeholder.png" alt=""></a>
+		{% else %}
+			<a href="/profile"><img id="user-image" src="{{user.profile_pic}}" alt=""></a>
+		{% endif %}
+	</div>
 </div>

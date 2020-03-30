@@ -51,6 +51,13 @@
 											<input class="input-field" id="comment" type="text" name="comment" placeholder="Add a comment...">
 											<button class="submit-button" type="submit" value="submit">Post</button>
 										</form>
+
+										{% for comment in post.comments %}
+											<div class="comment">
+												<h2>{{comment.username}}</h2>
+												<h4>{{comment.comment}}</h4>
+											</div>
+										{% endfor %}
 									</div>
 								</div>
 

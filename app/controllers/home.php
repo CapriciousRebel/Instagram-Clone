@@ -2,17 +2,19 @@
 
 namespace Controller;
 
+
+class Test{
+    public function get(){
+        phpinfo(); 
+    }
+}
+
+
 class Home
 {
     public function get()
     {
         session_start();
-
-        function array_push_assoc($array, $key, $value)
-        {
-            $array[$key] = $value;
-            return $array;
-        }
 
         if ($_SESSION["logged-in"] == 1) {
 
@@ -26,6 +28,7 @@ class Home
                 $like_uniq = strval($post_id) . strval($user_id);
 
                 $posts[$x]["likes"] = \Model\Like::countLikes($post_id);
+                $posts[$x]["comments"] = \Model\Comment::getComments($post_id);
 
                 if (\Model\Like::likeExists($like_uniq)) {
                     $posts[$x]["liked"] = "true";

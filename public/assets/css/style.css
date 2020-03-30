@@ -1,48 +1,98 @@
- @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
- * {
-     margin: 0;
-     padding: 0;
-     text-decoration: none;
-     color: black;
-     list-style: none;
-     box-sizing: border-box;
-     font-family: 'Poppins', sans-serif;
- }
- 
- .highlight-blue {
-     color: #0f4c75;
- }
- 
- .highlight-grey {
-     color: #52616b;
- }
- 
- .content {
-     height: 80vh;
- }
- 
- button {
-     cursor: pointer;
- }
- 
- footer {
-     height: 20vh;
-     padding: 50px 300px;
-     display: grid;
-     grid-template: 1fr /4fr 0.3fr 1.2fr;
- }
- 
- footer .links {
-     display: flex;
-     justify-content: space-around;
-     align-items: center;
-     font-size: 13px;
- }
- 
- footer h4 {
-     grid-column: 3;
-     display: flex;
-     justify-content: space-around;
-     align-items: center;
-     font-size: 13px;
- }
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: black;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    border: none;
+}
+
+.highlight-blue {
+    color: #0f4c75;
+}
+
+.highlight-grey {
+    color: #52616b;
+}
+
+.content {
+    height: 80vh;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/*input field styles*/
+
+.input-form {
+    display: flex;
+}
+
+.input-field {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 15px 0px 15px 0px;
+    background-color: white;
+}
+
+
+/*navbar styles*/
+
+.navbar-container {
+    widows: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #a6e3e9;
+}
+
+.navbar {
+    display: grid;
+    grid-template: 1fr / 1fr 2fr 4fr 1fr 1fr 1fr 1fr;
+    width: 80%;
+    height: 6vh;
+}
+
+.navbar img {
+    margin-top: 1vh;
+    height: 4vh;
+}
+
+.navbar .input-field {
+    width: 100%;
+    height: 4vh;
+    margin: 1vh 0vh;
+    background-color: white;
+    border: 1px solid #a6e3e9;
+}
+
+
+/*footer styles*/
+
+footer {
+    height: 20vh;
+    padding: 50px 300px;
+    display: grid;
+    grid-template: 1fr /4fr 0.3fr 1.2fr;
+}
+
+footer .links {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 13px;
+}
+
+footer h4 {
+    grid-column: 3;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 13px;
+}

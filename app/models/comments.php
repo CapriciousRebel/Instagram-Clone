@@ -61,12 +61,34 @@ class Comment
     public static function addComment($user_id, $post_id, $comment_uniq, $comment)
     {
         $database = \DB::get_database();
-        try{
-        $query = "INSERT INTO comments(user_id,post_id,comment_uniq,comment) VALUES(?,?,?,?);";
-        $result = $database->prepare($query);
-        $result->execute([$user_id, $post_id, $comment_uniq,$comment]);
-        return true;}
-        catch(PDOException $e) {
+        try {
+            $query = "INSERT INTO comments(user_id,post_id,comment_uniq,comment) VALUES(?,?,?,?);";
+            $result = $database->prepare($query);
+            $result->execute([$user_id, $post_id, $comment_uniq, $comment]);
+            return true;
+        } catch (PDOException $e) {
+            echo "error" . $e;
+        }
+    }
+
+    public static function getComments($post_id)
+    {
+        $database = \DB::get_database();
+        try {
+            $query = "SELECT username,comment FROM comments 
+                      INNER JOIN account    
+                      ON account.user_id = comments.user_id   
+                      WHERE post_id = :post_id ;";
+            $result = $database->prepare($query);
+            $result->execute(
+                array(
+                    ":post_id" => $post_id
+                )
+            );
+
+            $comments = $result->fetchAll(PDO::FETCH_ASSOC);
+            return $comments;
+        } catch (PDOException $e) {
             echo "error" . $e;
         }
     }

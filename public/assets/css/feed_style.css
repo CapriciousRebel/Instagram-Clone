@@ -1,37 +1,4 @@
 @import 'style.css';
-.navbar {
-    display: grid;
-    grid-template: 1fr / 1fr 5fr 4fr 1fr 1fr 1fr;
-    padding: 0% 20%;
-    border: 1px solid #a6e3e9;
-    height: 7vh;
-}
-
-.navbar-img {
-    display: flex;
-    align-self: center;
-    justify-self: flex-start;
-    height: 45px;
-}
-
-.search-box {
-    display: flex;
-    align-self: center;
-    justify-self: flex-start;
-}
-
-.input-form {
-    display: flex;
-}
-
-.input-field {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 15px 0px 15px 0px;
-    background-color: white;
-    border: none;
-}
-
 .submit-button {
     border: none;
     color: blue;
@@ -69,6 +36,21 @@
     margin-top: 100px;
     display: flex;
     flex-direction: column;
+}
+
+.post-comment {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment {
+    display: flex;
+    align-items: center;
+}
+
+.comment h4 {
+    padding-left: 10px;
+    font-size: 15px;
 }
 
 .username {

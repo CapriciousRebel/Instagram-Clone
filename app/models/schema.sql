@@ -36,10 +36,9 @@ CREATE TABLE comments
 );
 
 
-CREATE TABLE followers
-(
-    follower_id SERIAL PRIMARY KEY,
-    follow VARCHAR(255) REFERENCES account(username),
-    follower VARCHAR(255)
+CREATE TABLE followers  
+(                                                
+follower_id SERIAL PRIMARY KEY,
+follow INT REFERENCES account(user_id),   
+follower INT REFERENCES account(user_id)  
 );
-

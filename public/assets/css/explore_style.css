@@ -1,0 +1,56 @@
+@import 'style.css';
+.explore-container {
+    width: 100%;
+    min-height: 93vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(var(--b3f, 250, 250, 250), 1);
+}
+
+.explore-main {
+    width: 60%;
+}
+
+.user-card {
+    border: 1px solid grey;
+    border-radius: 4px;
+    max-width: 100%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    background-color: white;
+}
+
+.profile-pic {
+    max-width: 150px;
+    max-height: 150px;
+    border: 1px solid grey;
+    border-radius: 50%;
+    margin: 30px;
+}
+
+.username {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.follow-data {
+    font-size: 15px;
+}
+
+.follow {
+    color: white;
+    background-color: #0095f6;
+    border-radius: 2px;
+    height: 4vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin: 30px;
+    padding: 10px;
+}

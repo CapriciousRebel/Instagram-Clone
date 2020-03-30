@@ -107,6 +107,23 @@ class User
     }
 
     /**
+     * returns all the users
+     */
+    public static function getUsers()
+    {
+        $database = \DB::get_database();
+
+        $query = "SELECT * FROM account";
+        $result = $database->prepare($query);
+        $result->execute();
+        $users = $result->fetchAll(PDO::FETCH_ASSOC);
+
+        return $users;
+    }
+
+
+    
+    /**
      * update the user data O(1)
      */
     public static function updateUser($user_id, $new_username, $new_name, $new_password, $new_email_or_phone)
