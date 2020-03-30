@@ -17,23 +17,38 @@
 			<div class="explore-main">
 
 				{% for user in users %}
-					<div class="user-card">
-						<img class="profile-pic" src="{{user.profile_pic}}">
-						<div class="user-data">
-							<h1 class="username">
-								@{{user.username}}
-							</h1>
-							<h3 class="follow-data highlight-grey">
-								Suggested for you</h3>
-						</div>
-						<div class="follow" id="{{user.user_id}}">
-							Follow
-						</div>
-					</div>
+					{% if current_user.user_id == user.user_id %}
+						{% else %}
+							<div class="user-card">
+								<img class="profile-pic" src="{{user.profile_pic}}">
+								<div class="user-data">
+									<h1 class="username">
+										@{{user.username}}
+									</h1>
+									{% if user.follows == "true" %}
+										<h3 class="follow-data highlight-grey">
+											Follows you</h3>
+									{% else %}
+										<h3 class="follow-data highlight-grey">
+											Suggested for you</h3>
+									{% endif %}
+								</div>
+
+								{% if user.followed == "true" %}
+									<div class="follow-button" id="{{user.user_id}}">
+										Following
+									</div>
+								{% else %}
+									<div class="follow-button" id="{{user.user_id}}">
+										Follow
+									</div>
+								{% endif %}
+							</div>
+					{% endif %}
 				{% endfor %}
 			</div>
 			<script src="/assets/js/explore.js"></script>
 
 		</div>
 	</body>
-</html></body></html></body></html>
+</html></body></html></body></html></body></html></body></html>

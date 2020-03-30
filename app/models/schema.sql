@@ -24,7 +24,7 @@ CREATE TABLE likes
     like_id SERIAL PRIMARY KEY,
     post_id INT REFERENCES posts(post_id),
     user_id INT REFERENCES account(user_id),
-    like_uniq VARCHAR(2)
+    like_uniq VARCHAR(1023)
 );
 
 CREATE TABLE comments
@@ -32,13 +32,14 @@ CREATE TABLE comments
     comment_id SERIAL PRIMARY KEY,
     post_id INT REFERENCES posts(post_id),
     user_id INT REFERENCES account(user_id),
-    comment_uniq VARCHAR(2)
+    comment_uniq VARCHAR(1023)
 );
 
 
 CREATE TABLE followers  
 (                                                
-follower_id SERIAL PRIMARY KEY,
-follow INT REFERENCES account(user_id),   
-follower INT REFERENCES account(user_id)  
+    follower_id SERIAL PRIMARY KEY,
+    follow INT REFERENCES account(user_id),   
+    follower INT REFERENCES account(user_id) ,
+    follow_uniq VARCHAR(1023) 
 );
