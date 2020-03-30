@@ -21,6 +21,7 @@ class Home
             $user_id = $_SESSION['user_id'];
             $user = \Model\User::getUser($user_id);
             $posts = \Model\Post::getPosts();
+            $posts = array_reverse($posts);
 
             for ($x = 0; $x < count($posts); $x++) {
 

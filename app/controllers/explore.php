@@ -13,6 +13,7 @@ class Explore
 
             $user = \Model\User::getUser($user_id);
             $users = \Model\User::getUsers();
+            shuffle($users);
 
             for ($x = 0; $x < count($users); $x++) {
 
@@ -35,7 +36,7 @@ class Explore
 
             echo \View\Loader::make()->render("templates/explore.twig", array(
                 "users" => $users,
-                "current_user" => $user,
+                "user" => $user,
             ));
         }
     }
