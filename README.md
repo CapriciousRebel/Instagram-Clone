@@ -29,10 +29,11 @@ A clone of Instagram website, as an exercise to study the MVC Architecture
     ```
     <?php
     $username = 'postgres';
-    $password = '< your password >';
+    $password = '<- your password ->';
     $host = 'localhost';
-    $dbname = '< your database name >';
+    $dbname = '<- your database name ->';
     ```
+- use schema.sql to create a database
 
 
 
