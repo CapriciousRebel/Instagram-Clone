@@ -10,6 +10,9 @@ A clone of Instagram website, as an exercise to study the MVC Architecture
 ### Back-end:
 - PHP
 - ToroPHP, composer
+### Database:
+- PostgreSQL
+---
 
 Setup :
 1) clone the repo and `cd` into it
