@@ -15,11 +15,13 @@ Setup :
 1) clone the repo and `cd` into it
 2) setup composer:
   (i) `curl -s https://getcomposer.org/installer | php`
+  
   (ii) `sudo mv composer.phar /usr/local/bin/composer`
 3) install dependencies  `composer install`
 4) dump autoload `composer dump-autoload`
 5) setup database connection :
   (i) `cd config`
+  
   (ii) `touch config.php`
   
    
