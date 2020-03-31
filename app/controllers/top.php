@@ -31,7 +31,7 @@ class Top
                 }
             }
 
-
+            // using bubble sort to sort according to number of likes
             $n = sizeof($posts);
             for ($i = 0; $i < $n; $i++) {
                 for ($j = 0; $j < $n - $i - 1; $j++) {
@@ -41,9 +41,6 @@ class Top
                         $posts[$j + 1]  = $t;
                     }
                 }
-            }
-            for ($i = 0; $i < $n; $i++) {
-                echo $posts[$i]['likes'];
             }
 
             echo \View\Loader::make()->render("templates/homepage.twig", array(

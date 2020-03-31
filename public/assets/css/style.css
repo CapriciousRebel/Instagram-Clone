@@ -65,6 +65,11 @@ button {
     height: 4vh;
 }
 
+.navbar a {
+    display: flex;
+    justify-self: center;
+}
+
 .navbar .input-field {
     width: 100%;
     height: 4vh;
@@ -72,6 +77,20 @@ button {
     background-color: white;
     border: 1px solid #a6e3e9;
 }
+
+#upload {}
+
+#logo {}
+
+#search {}
+
+#home {}
+
+#trending {}
+
+#top {}
+
+#users {}
 
 #user-image {
     border: 1px solid gray;
