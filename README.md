@@ -12,9 +12,10 @@ A clone of Instagram website, as an exercise to study the MVC Architecture
 - ToroPHP, composer
 ### Database:
 - PostgreSQL
+
 ---
 
-Setup :
+# Setup :
 1) clone the repo and `cd` into it
 2) setup composer:
 - `curl -s https://getcomposer.org/installer | php`
@@ -24,5 +25,16 @@ Setup :
 5) setup database connection :
 - `cd config`
 - `touch config.php`
+- edit config.php and add the details of your database connection in the following format:
+    ```
+    <?php
+    $username = 'postgres';
+    $password = '< your password >';
+    $host = 'localhost';
+    $dbname = '< your database name >';
+    ```
+
+
+
   
    
