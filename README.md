@@ -22,7 +22,6 @@ A clone of Instagram website, as an exercise to study the MVC Architecture
 1) clone the repo and `cd` into it
 2) run setup.sh `./setup.sh`
 
-
 ## Method 2:
 
 1) clone the repo and `cd` into it
