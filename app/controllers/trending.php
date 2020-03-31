@@ -3,11 +3,14 @@
 namespace Controller;
 
 
-class Top
+class Trending
 {
+
+    // this will be a function of (likes in a specific time, time)
     public function get()
     {
         session_start();
+        date_default_timezone_set("Asia/Kolkata");
 
         if ($_SESSION["logged-in"] == 1) {
 
@@ -20,6 +23,8 @@ class Top
 
                 $post_id = $posts[$x]['post_id'];
                 $like_uniq = strval($post_id) . strval($user_id);
+
+                $date = \Model\Post::getDate($post_id);
 
                 $posts[$x]["likes"] = \Model\Like::countLikes($post_id);
                 $posts[$x]["comments"] = \Model\Comment::getComments($post_id);
@@ -45,7 +50,11 @@ class Top
                 }
             }
 
-            echo \View\Loader::make()->render("templates/top.twig", array(
+            $date = date("Y m d h i s");
+            //echo $date;
+
+
+            echo \View\Loader::make()->render("templates/trending.twig", array(
                 "posts" => $posts,
                 "user" => $user,
             ));

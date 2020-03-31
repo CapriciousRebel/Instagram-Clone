@@ -3,7 +3,7 @@
 namespace Controller;
 
 
-class Top
+class Latest
 {
     public function get()
     {
@@ -31,21 +31,7 @@ class Top
                 }
             }
 
-
-            // (Top posts)
-            //using modified bubble sort to sort according to number of likes
-            $n = sizeof($posts);
-            for ($i = 0; $i < $n; $i++) {
-                for ($j = 0; $j < $n - $i - 1; $j++) {
-                    if ($posts[$j]['likes'] < $posts[$j + 1]['likes']) {
-                        $t = $posts[$j];
-                        $posts[$j] = $posts[$j + 1];
-                        $posts[$j + 1]  = $t;
-                    }
-                }
-            }
-
-            echo \View\Loader::make()->render("templates/top.twig", array(
+            echo \View\Loader::make()->render("templates/latest.twig", array(
                 "posts" => $posts,
                 "user" => $user,
             ));

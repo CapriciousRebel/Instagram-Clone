@@ -40,6 +40,22 @@ class Post
         return $posts;
     }
 
+    public static function getDate($post_id){
+        $database = \DB::get_database();
+
+        $query = "SELECT created_at FROM posts 
+                  WHERE post_id = :post_id";
+        $result = $database->prepare($query);
+        $result->execute(
+            array(
+                ":post_id" => $post_id,
+            )
+        );
+
+        $dates= $result->fetchAll(PDO::FETCH_ASSOC);
+        return $dates;
+    }
+
     /**
      * returns all the data for the posts
      */

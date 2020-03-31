@@ -2,9 +2,6 @@
 
 session_start();
 
-// $_SESSION["logged-in"] = 0; <--- This was the problem, everytime I loaded the index page, 
-// this variable was getting set to 0, and hence login was not getting authenticated
-
 require __DIR__ . "/../vendor/autoload.php";
 
 Toro::serve(array(
@@ -23,6 +20,8 @@ Toro::serve(array(
     "/user" => "\Controller\User",
     "/explore" => "\Controller\Explore",
     "/top" => "\Controller\Top",
+    "/latest" => "\Controller\Latest",
+    "/trending" => "\Controller\Trending",
     "/follow" => "\Controller\Follow",
 
 ));
