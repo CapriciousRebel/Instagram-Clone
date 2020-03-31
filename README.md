@@ -16,6 +16,15 @@ A clone of Instagram website, as an exercise to study the MVC Architecture
 ---
 
 # Setup :
+
+## Method 1:
+
+1) clone the repo and `cd` into it
+2) run setup.sh `./setup.sh`
+
+
+## Method 2:
+
 1) clone the repo and `cd` into it
 2) setup composer:
 - `curl -s https://getcomposer.org/installer | php`
