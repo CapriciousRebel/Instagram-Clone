@@ -54,12 +54,13 @@ button {
 
 .navbar {
     display: grid;
-    grid-template: 1fr / 1fr 2fr 4fr 1fr 1fr 1fr 1fr;
+    grid-template: 1fr / 1fr 2fr 4fr 1fr 1fr 1fr 1fr 1fr;
     width: 80%;
     height: 6vh;
 }
 
-.navbar img {
+.navbar img,
+.navbar h3 {
     margin-top: 1vh;
     height: 4vh;
 }

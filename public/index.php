@@ -22,6 +22,7 @@ Toro::serve(array(
     "/upload_profile" => "\Controller\UpdateProfilePic",
     "/user" => "\Controller\User",
     "/explore" => "\Controller\Explore",
+    "/top" => "\Controller\Top",
     "/follow" => "\Controller\Follow",
 
 ));

@@ -24,8 +24,7 @@
 								<div class="username">
 
 									<img class="post-profile_image" src="{{post.profile_pic}}">
-
-									<h2 class="post-username">{{post.username}}</h2>
+									<h2 class="post-username"><a href="\user?user_id={{post.user_id}}">{{post.username}}</a></h2>
 								</div>
 								<img class="post-image" src="{{post.path}}">
 
@@ -48,7 +47,7 @@
 									</div>
 									<div class="post-comment">
 										<form class="input-form" method="POST">
-											<input class="input-field" id="comment" type="text" name="comment" placeholder="Add a comment...">
+											<input class="input-field" type="text" name="comment" placeholder="Add a comment...">
 											<button class="submit-button" type="submit" value="submit">Post</button>
 										</form>
 
