@@ -37,6 +37,8 @@ $(document).ready(function() {
 
         post_id = $(this).parent().parent().siblings("img").attr("id");
         comment = $(this).siblings("input").val();
+        username = $(this).siblings(".username-value").val()
+        user_comment = $(this).parent().siblings(".comment.user");
 
         $.ajax({
             type: "POST",
@@ -46,7 +48,8 @@ $(document).ready(function() {
                 comment: comment
             },
             success: function(resp) {
-                console.log(resp);
+                user_comment.children("h2").html(username);
+                user_comment.children("h4").html(comment);
             }
 
         })

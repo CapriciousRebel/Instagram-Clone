@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
-    $(".submit-button").click(function() {
-
+    $(".submit-button").click(function(e) {
+        e.preventDefault();
         var fd = new FormData();
         var files = $("#image_input")[0].files[0]
         fd.append('file', files); // 'file' retrives data from $_FILES['file']

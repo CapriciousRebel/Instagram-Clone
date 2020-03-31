@@ -1,4 +1,4 @@
 vendor/
 composer.phar
-config/config2.php
+config/config.php
 .DS_Store

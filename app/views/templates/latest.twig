@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Instagram</title>
+		<link rel="stylesheet" href="/assets/css/feed_style.css">
+		<link rel="icon" href="/assets/images/favicon.ico" type="image/gif" sizes="16x16">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	</head>
+
+	<body>
+		<div class="navbar-container">
+			<div class="navbar">
+				<a href="/upload"><img id="upload" src="assets/images/nav-bar/camera.png" alt=""></a>
+
+				<a href="/"><img id="logo" src="assets/images/nav-bar/logo.png" alt=""></a>
+
+				<input class="input-field" id="search" type="text" name="search" placeholder="Search">
+
+				<a href="/"><img id="home" src="assets/images/nav-bar/home.png" alt=""></a>
+
+				<a href="/trending"><img id="trending" src="assets/images/nav-bar/trending.png" alt=""></a>
+				<a href="/top">
+					<h3 id="trends">
+						<span id="one" flag="0">Top</span>/<span id="two" flag="1">Latest</span>
+					</h3>
+				</a>
+
+				<a href="/explore"><img id="users" src="assets/images/heart.png"></a>
+
+				{% if user.profile_pic == "" %}
+					<a href="/profile"><img id="user-image" src="/assets/images/nav-bar/placeholder.png" alt=""></a>
+				{% else %}
+					<a href="/profile"><img id="user-image" src="{{user.profile_pic}}" alt=""></a>
+				{% endif %}
+			</div>
+		</div>
+
+
+		<div class="home-content">
+
+			<div class="posts">
+
+				{% for post in posts %}
+					{% if post.path == "" %}
+						{% else %}
+							<div class="post" id="post-{{post.post_id}}">
+								<div class="username">
+
+									<img class="post-profile_image" src="{{post.profile_pic}}">
+									<h2 class="post-username">
+										<a href="\user?user_id={{post.user_id}}">{{post.username}}</a>
+									</h2>
+								</div>
+								<img class="post-image" src="{{post.path}}">
+
+								<div class="caption">
+									{% if post.liked == "true" %}
+										<img class="post-like" id="{{post.post_id}}" src="/assets/images/heart_activated.png">
+									{% else %}
+										<img class="post-like" id="{{post.post_id}}" src="/assets/images/heart.png">
+									{% endif %}
+									<div class="likes">
+										<h3 class="like-count">
+											{{post.likes}}
+										</h3>
+										<h3 class="like-text">likes</h3>
+									</div>
+									<div class="post-caption">
+										<img class="post-profile_image" src="{{post.profile_pic}}">
+										<h2>{{post.username}}</h2>
+										<h4>{{post.caption}}</h4>
+									</div>
+									<div class="post-comment">
+										<form class="input-form" method="POST">
+											<input class="input-field" type="text" name="comment" placeholder="Add a comment...">
+											<button class="submit-button" type="submit" value="submit">Post</button>
+										</form>
+
+										{% for comment in post.comments %}
+											<div class="comment">
+												<h2>{{comment.username}}</h2>
+												<h4>{{comment.comment}}</h4>
+											</div>
+										{% endfor %}
+									</div>
+								</div>
+
+							</div>
+					{% endif %}
+				{% endfor %}
+				<script src="/assets/js/feed.js"></script>
+				<script src="/assets/js/latest.js"></script>
+			</div>
+
+		</div>
+	</body>
+</html></body></html></body></html>
