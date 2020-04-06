@@ -38,6 +38,8 @@ $(document).ready(function() {
         post_id = $(this).parent().parent().siblings("img").attr("id");
         comment = $(this).siblings("input").val();
 
+        $('#user-comment').children("h4").html(comment);
+
         $.ajax({
             type: "POST",
             url: "/comment",

@@ -24,7 +24,9 @@
 								<div class="username">
 
 									<img class="post-profile_image" src="{{post.profile_pic}}">
-									<h2 class="post-username"><a href="\user?user_id={{post.user_id}}">{{post.username}}</a></h2>
+									<h2 class="post-username">
+										<a href="\user?user_id={{post.user_id}}">{{post.username}}</a>
+									</h2>
 								</div>
 								<img class="post-image" src="{{post.path}}">
 
@@ -50,6 +52,11 @@
 											<input class="input-field" type="text" name="comment" placeholder="Add a comment...">
 											<button class="submit-button" type="submit" value="submit">Post</button>
 										</form>
+
+										<div class="comment" id = "user-comment">
+											<h2></h2>
+											<h4></h4>
+										</div>
 
 										{% for comment in post.comments %}
 											<div class="comment">
