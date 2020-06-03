@@ -19,6 +19,11 @@ A clone of Instagram website, as an exercise to study the MVC Architecture
 
 - use schema.sql to create the database
 
+## Simplest method:
+run `docker-compose build`
+run `docker-compose up`
+open http://localhost:8000
+
 ## Method 1:
 
 1) clone the repo and `cd` into it
