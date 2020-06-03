@@ -1,0 +1,30 @@
+version: "3.3"
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_DB: instagram
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: password
+      POSTGRES_HOST: 0.0.0.0
+    ports:
+      - "5433:5432"
+
+  web:
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+    container_name: instagram
+    extra_hosts:
+      - "instagram.rebel.local:127.0.0.1"
+    hostname: instagram.rebel.local
+    domainname: local
+    ports:
+      - 8000:80
+    depends_on:
+      - db
+    links:
+      - "db:database"
+    environment:
+      - "DB_PORT=5433"
+      - "DB_HOST=db"

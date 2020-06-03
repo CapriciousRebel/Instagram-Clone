@@ -1,0 +1,4 @@
+[Tue Jun 02 16:53:32.775408 2020] [authz_core:error] [pid 16] [client 172.20.0.1:37470] AH01630: client denied by server configuration: /app/public/
+[Tue Jun 02 16:53:33.150522 2020] [authz_core:error] [pid 16] [client 172.20.0.1:37470] AH01630: client denied by server configuration: /app/public/favicon.ico, referer: http://localhost:9999/
+[Tue Jun 02 16:53:34.155005 2020] [authz_core:error] [pid 16] [client 172.20.0.1:37470] AH01630: client denied by server configuration: /app/public/
+[Tue Jun 02 16:53:34.309327 2020] [authz_core:error] [pid 16] [client 172.20.0.1:37470] AH01630: client denied by server configuration: /app/public/favicon.ico, referer: http://localhost:9999/

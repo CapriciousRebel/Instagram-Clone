@@ -22,7 +22,7 @@ A clone of Instagram website, as an exercise to study the MVC Architecture
 ## Method 1:
 
 1) clone the repo and `cd` into it
-2) give permission to run setup.sh : `chmod 777 setup.sh`
+2) give permission to run setup.sh : `chmod 500 setup.sh`
 3) run setup.sh: `./setup.sh`
 4) `cd config`
 5)  edit the config.php file and enter the database connection details
@@ -52,8 +52,3 @@ A clone of Instagram website, as an exercise to study the MVC Architecture
 6) cd into public folder: `cd ../public`
 7) start a development server: `php -S localhost:8080`
 8) open your browser and open http://localhost:8080
-
-
-
-  
-   

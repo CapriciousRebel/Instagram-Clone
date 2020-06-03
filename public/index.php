@@ -23,5 +23,4 @@ Toro::serve(array(
     "/latest" => "\Controller\Latest",
     "/trending" => "\Controller\Trending",
     "/follow" => "\Controller\Follow",
-
 ));
