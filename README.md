@@ -1,4 +1,4 @@
-A clone of the Instagram website.
+A clone of the Instagram website made for the purpose of learning the MVC architecture
 
 ### Architecture:
 
