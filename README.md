@@ -25,7 +25,7 @@ A clone of the Instagram website.
 ## Method 1 (Single command setup and go using docker):
 
 1. Add `127.0.0.1 instagram.rebel.local` entry in your `/etc/hosts` file
-2. run `docker-compose build && docker-compose up`
+2. run `docker-compose up`
 3. open http://instagram.rebel.local
 
 
