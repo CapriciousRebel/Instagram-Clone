@@ -1,6 +1,6 @@
 <?php
 
-$username = 'root';
-$password = 'password';
 $host = 'database';
 $dbname = 'instagram';
+$username = 'root';
+$password = 'password';
