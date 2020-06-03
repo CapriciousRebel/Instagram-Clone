@@ -17,17 +17,13 @@ RUN a2enmod rewrite
 COPY . /app
 RUN chown -R www-data:www-data /app 
 
-
 # Choose the WORKDIR
 WORKDIR /app
+
+# Run Composer
 RUN curl -s https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
-# Install PDO and PGSQL Drivers
-
 RUN composer install
 RUN composer dump-autoload
-
 CMD ["start-apache"]
-
-####################
 

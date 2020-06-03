@@ -20,7 +20,7 @@ services:
     hostname: instagram.rebel.local
     domainname: local
     ports:
-      - 8000:80
+      - 80:80
     depends_on:
       - db
     links:
