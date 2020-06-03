@@ -20,9 +20,12 @@ A clone of Instagram website, as an exercise to study the MVC Architecture
 - use schema.sql to create the database
 
 ## Simplest method:
+add `127.0.0.1 instagram.rebel.local` in your `/etc/hosts` file
+restart apache :`sudo apachectl restart`
+stop apache :`sudo apachectl stop`
 run `docker-compose build`
 run `docker-compose up`
-open http://localhost:8000
+open http://instagram.rebel.local
 
 ## Method 1:
 
