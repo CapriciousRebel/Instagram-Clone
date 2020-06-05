@@ -6,9 +6,10 @@ services:
       POSTGRES_DB: instagram
       POSTGRES_USER: root
       POSTGRES_PASSWORD: password
-      POSTGRES_HOST: 0.0.0.0
     ports:
       - "5433:5432"
+    volumes: 
+      - ./dump.sql:/dump.sql
 
   web:
     build:
@@ -20,7 +21,7 @@ services:
     hostname: instagram.rebel.local
     domainname: local
     ports:
-      - 80:80
+      - 8000:80
     depends_on:
       - db
     links:
@@ -28,3 +29,5 @@ services:
     environment:
       - "DB_PORT=5433"
       - "DB_HOST=db"
+    volumes:
+      - ./public/logs:/app/public/logs

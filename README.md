@@ -22,17 +22,11 @@ A clone of the Instagram website made for the purpose of learning the MVC archit
 
 # Setup :
 
-## Method 1 (Single command setup and go using docker):
+(Make sure you have docker installed)
 
 1. Add `127.0.0.1 instagram.rebel.local` entry in your `/etc/hosts` file
 2. run `docker-compose up`
-3. open http://instagram.rebel.local
+3. run `docker exec -it instagram-clone_db_1 bash` in another terminal
+4. run `PGPASSWORD=password psql -h localhost -d instagram -U root < dump.sql` to populate the database and exit the terminal
+5. open http://instagram.rebel.local:8000
 
-
-## Method 2:
-
-1. run setup.sh : `chmod 500 setup.sh && ./setup.sh`
-2. Make a postgresql database and apply the schema present in `app/models/schema.sql`
-3. edit the `config/config.php` file and enter the database connection details
-4. start a development server: `cd ../public && php -S localhost:8080`
-5. open your browser and open http://localhost:8080

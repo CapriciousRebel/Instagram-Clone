@@ -2,7 +2,15 @@ FROM php:7.3-apache
 
 # Install dependencies
 RUN apt-get update
+RUN apt-get remove libpq5
+RUN apt-get install -y libpq-dev \
+    && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
+    && docker-php-ext-install pdo pdo_pgsql pgsql
 RUN apt-get install zip unzip
+
+# Setup the db
+RUN chmod 500 ./init.sh 
+RUN ./init.sh
 
 # virtual hosts, apache and mod_rewrite
 COPY .docker/vhost.conf /etc/apache2/sites-available/000-default.conf
